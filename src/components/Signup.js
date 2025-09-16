@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Eye, EyeOff, Mail, Lock, User, GraduationCap, School, Brain, AlertCircle, CheckCircle } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, User, GraduationCap, School, AlertCircle, CheckCircle } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import DALogo from './DALogo';
 
 const Signup = ({ onSwitchToLogin, onSignupSuccess }) => {
   const [formData, setFormData] = useState({
@@ -92,12 +93,12 @@ const Signup = ({ onSwitchToLogin, onSignupSuccess }) => {
         {/* Logo and Title */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <div className="w-16 h-16 bg-gradient-to-r from-red-600 to-red-700 rounded-2xl flex items-center justify-center">
-              <Brain className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center p-2">
+              <DALogo className="w-12 h-12" variant="black" />
             </div>
           </div>
           <h1 className="text-3xl font-bold text-white mb-2">Dynamic Active LMS</h1>
-          <p className="text-red-200">AI-Powered Learning Management System</p>
+          <p className="text-gray-200">AI-Powered Learning Management System</p>
         </div>
 
         {/* Signup Form */}

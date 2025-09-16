@@ -124,11 +124,11 @@ const AIQuizModal = ({ isOpen, onClose, onGenerate, courses = [] }) => {
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-red-600 to-red-700 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center">
               <Brain className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-gray-800">AI Quiz Generator</h2>
+              <h2 className="text-xl font-bold text-gray-900">AI Quiz Generator</h2>
               <p className="text-sm text-gray-600">Generate intelligent quizzes with AI</p>
             </div>
           </div>
@@ -158,7 +158,7 @@ const AIQuizModal = ({ isOpen, onClose, onGenerate, courses = [] }) => {
               name="courseId"
               value={formData.courseId}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-900"
             >
               <option value="">Choose a course...</option>
               {courses.map(course => (
@@ -179,7 +179,7 @@ const AIQuizModal = ({ isOpen, onClose, onGenerate, courses = [] }) => {
               value={formData.subject}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-900"
             >
               <option value="">Select subject...</option>
               <option value="Math">Mathematics</option>
@@ -202,7 +202,7 @@ const AIQuizModal = ({ isOpen, onClose, onGenerate, courses = [] }) => {
                 onChange={handleChange}
                 placeholder="Enter quiz topic (e.g., 'Algebra Basics', 'Photosynthesis')"
                 required
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-900"
               />
               {showSuggestions && suggestions.length > 0 && (
                 <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
@@ -233,7 +233,7 @@ const AIQuizModal = ({ isOpen, onClose, onGenerate, courses = [] }) => {
               name="gradeLevel"
               value={formData.gradeLevel}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-900"
             >
               <option value="">Select grade level...</option>
               <option value="K">Kindergarten</option>
@@ -290,7 +290,7 @@ const AIQuizModal = ({ isOpen, onClose, onGenerate, courses = [] }) => {
               onChange={handleChange}
               min="1"
               max="20"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-900"
             />
             <p className="text-xs text-gray-500 mt-1">
               Choose between 1-20 questions
@@ -313,7 +313,7 @@ const AIQuizModal = ({ isOpen, onClose, onGenerate, courses = [] }) => {
                   key={type.value}
                   className={`relative flex items-center space-x-2 p-3 border-2 rounded-lg cursor-pointer transition-all ${
                     formData.questionTypes.includes(type.value)
-                      ? 'border-purple-500 bg-purple-50'
+                      ? 'border-gray-900 bg-gray-50'
                       : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
@@ -358,7 +358,7 @@ const AIQuizModal = ({ isOpen, onClose, onGenerate, courses = [] }) => {
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-2 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg hover:from-red-700 hover:to-red-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center space-x-2"
+              className="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center space-x-2"
             >
               {loading ? (
                 <>
@@ -380,4 +380,3 @@ const AIQuizModal = ({ isOpen, onClose, onGenerate, courses = [] }) => {
 };
 
 export default AIQuizModal;
-

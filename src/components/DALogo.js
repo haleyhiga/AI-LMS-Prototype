@@ -7,64 +7,37 @@ const DALogo = ({ className = "w-8 h-8", variant = "default" }) => {
   // Different variants for different use cases
   const variants = {
     default: {
-      fill: "#ef4444", // brand red
-      stroke: "none"
+      // No filters - show original image
     },
     white: {
-      fill: "#ffffff", // white
-      stroke: "none"
+      filter: "brightness(0) invert(1)", // Makes image white
     },
     black: {
-      fill: "#000000", // black
-      stroke: "none"
+      filter: "brightness(0)", // Makes image black
     },
     outline: {
-      fill: "none",
-      stroke: "#ef4444",
-      strokeWidth: "2"
+      filter: "brightness(0) invert(1) drop-shadow(0 0 2px currentColor)", // White with outline effect
     }
   };
 
   const style = variants[variant] || variants.default;
 
   return (
-    <svg
+    <img
+      src="/da-logo.png"
+      alt="Dynamic Active Logo"
       className={combinedClasses}
-      viewBox="0 0 100 100"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      {/* Background circle/rounded square */}
-      <rect
-        x="5"
-        y="5"
-        width="90"
-        height="90"
-        rx="20"
-        ry="20"
-        fill="white"
-        stroke="#e5e7eb"
-        strokeWidth="1"
-      />
-      
-      {/* DA Letters */}
-      <g transform="translate(20, 20)">
-        {/* Letter D */}
-        <path
-          d="M10 10 L10 50 L25 50 Q35 50 35 40 L35 20 Q35 10 25 10 Z M15 15 L25 15 Q30 15 30 20 L30 40 Q30 45 25 45 L15 45 Z"
-          fill={style.fill}
-          stroke={style.stroke}
-          strokeWidth={style.strokeWidth}
-        />
-        
-        {/* Letter A - connected to D */}
-        <path
-          d="M35 50 L45 10 L55 10 L65 50 L60 50 L58 40 L42 40 L40 50 Z M44 15 L56 15 L50 35 L48 35 Z"
-          fill={style.fill}
-          stroke={style.stroke}
-          strokeWidth={style.strokeWidth}
-        />
-      </g>
-    </svg>
+      style={style}
+      onLoad={() => {
+        console.log('Logo image loaded successfully');
+      }}
+      onError={(e) => {
+        console.error('Logo image failed to load. Make sure da-logo.png is in the public folder.');
+        console.error('Image src:', e.target.src);
+        // Show a fallback text
+        e.target.style.display = 'none';
+      }}
+    />
   );
 };
 
