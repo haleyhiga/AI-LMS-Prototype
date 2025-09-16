@@ -42,16 +42,31 @@ Dynamic Active LMS is an AI-powered Learning Management System designed specific
    npm install
    ```
 
-3. **Set up Supabase Authentication**
+3. **Set up Environment Variables**
    
-   a. Create a new project at [supabase.com](https://supabase.com)
+   a. Copy the example environment file:
+   ```bash
+   cp .env.example .env.local
+   ```
    
-   b. Get your project URL and anon key from the dashboard
+   b. Edit `.env.local` with your actual API keys:
+   ```bash
+   # Supabase Configuration
+   REACT_APP_SUPABASE_URL=your_supabase_url_here
+   REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key_here
    
-   c. Create a `.env.local` file in the root directory:
-   ```env
-   REACT_APP_SUPABASE_URL=your_supabase_project_url
-   REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
+   # OpenAI Configuration (Optional - for AI features)
+   REACT_APP_OPENAI_API_KEY=your_openai_api_key_here
+   ```
+   
+   c. Get your Supabase credentials:
+   - Create a new project at [supabase.com](https://supabase.com)
+   - Get your project URL and anon key from the dashboard
+   
+   d. Get your OpenAI API key (optional):
+   - Sign up at [OpenAI Platform](https://platform.openai.com/)
+   - Create an API key from the dashboard
+   - Add it to `.env.local` for AI-powered features
    ```
 
 4. **Start the development server**
