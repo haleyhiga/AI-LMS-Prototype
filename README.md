@@ -5,6 +5,12 @@ Dynamic Active LMS is an AI-powered Learning Management System designed specific
 
 ## ✨ Key Features
 
+### Authentication & Security
+- **Complete Authentication System**: Login and signup with Supabase
+- **Role-based Access Control**: Support for students, teachers, and administrators
+- **Secure User Management**: Protected routes and user context
+- **Email Verification**: Built-in email confirmation system
+
 ### AI-Powered Features
 - **Personalized Learning Paths**: Automatically assigns students to appropriate learning tracks
 - **Automated Grading**: Instant AI-powered assessment grading
@@ -36,10 +42,16 @@ Dynamic Active LMS is an AI-powered Learning Management System designed specific
    npm install
    ```
 
-3. **Install Tailwind CSS**
-   ```bash
-   npm install -D tailwindcss postcss autoprefixer
-   npx tailwindcss init -p
+3. **Set up Supabase Authentication**
+   
+   a. Create a new project at [supabase.com](https://supabase.com)
+   
+   b. Get your project URL and anon key from the dashboard
+   
+   c. Create a `.env.local` file in the root directory:
+   ```env
+   REACT_APP_SUPABASE_URL=your_supabase_project_url
+   REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
 
 4. **Start the development server**
@@ -50,6 +62,23 @@ Dynamic Active LMS is an AI-powered Learning Management System designed specific
 5. **Open your browser**
    Navigate to `http://localhost:3000`
 
+## 🔐 Authentication Setup
+
+The application includes a complete authentication system. After setting up Supabase:
+
+1. **First-time users** will see the signup form
+2. **Existing users** can log in with their credentials
+3. **User roles** are supported (student, teacher, administrator)
+4. **Email verification** is handled by Supabase
+
+### User Registration
+- Students can select their grade level
+- Teachers and administrators have full system access
+- All users can specify their school (optional)
+
+### Database Schema
+For extended functionality, you may want to set up additional tables in Supabase. See `SETUP.md` for detailed database schema instructions.
+
 ## 📁 Project Structure
 ```
 dynamic-active-lms/
@@ -57,12 +86,25 @@ dynamic-active-lms/
 │   ├── index.html
 │   └── favicon.ico
 ├── src/
-│   ├── App.js           # Main LMS component
-│   ├── App.css          # Global styles
-│   ├── index.js         # React entry point
-│   └── index.css        # Tailwind imports
+│   ├── components/          # Reusable UI components
+│   │   ├── Login.js        # Login form component
+│   │   ├── Signup.js       # Signup form component
+│   │   └── ProtectedRoute.js # Route protection wrapper
+│   ├── contexts/           # React context providers
+│   │   └── AuthContext.js  # Authentication context
+│   ├── services/           # API and service functions
+│   │   └── authService.js  # Authentication service
+│   ├── utils/              # Utility functions
+│   │   └── supabase.ts     # Supabase client configuration
+│   ├── App.js              # Main application component with auth
+│   ├── LMSPrototype.js     # LMS dashboard component
+│   ├── index.js            # React entry point
+│   └── index.css           # Tailwind imports
+├── utils/
+│   └── supabase.ts         # Supabase configuration
 ├── package.json
 ├── tailwind.config.js
+├── SETUP.md               # Detailed setup instructions
 ├── README.md
 └── .gitignore
 ```
